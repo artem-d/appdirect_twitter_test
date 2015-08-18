@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div class="tweetColumns">
+      <ul class="tweetColumn" id="column_0">
+        <p>The 30 most recent tweets from @AppDirect.</p>
+      </ul>
+      <ul class="tweetColumn" id="column_1">
+        <p>The 30 most recent tweets from @techcrunch.</p>
+      </ul>
+      <ul class="tweetColumn" id="column_2">
+        <p>The 30 most recent tweets from @laughingsquid.</p>
+      </ul>
+      <div style="clear:both;"></div>
+    </div>
+
+    <!-- Template for timeline -->
+
+    <script type="text/x-handlebars-template" id="timeline-template">
+      <ul class='tweetTimeline'>
+        {{#each tweets}}
+        <li class="tweet">
+          <div class="avatar">
+            <img src='{{user.profile_image_url}}'></img>
+          </div>
+          <div class='data'>
+            <b>{{user.name}}</b>
+            <div class="timestamp"><i>{{friendlyDate}}</i></div>
+            <p>{{format text}}</p>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+
+
+    <!-- General Includes -->
+    <script src="javascripts/external/jquery-1.11.3.min.js"></script>
+    <script src="javascripts/external/underscore-min.js"></script>
+    <script src="javascripts/external/backbone-min.js"></script>
+    <script src="javascripts/external/handlebars-v3.0.3.js"></script>
+    <script src="javascripts/external/ejs_0.9_alpha_1_production.js"></script>
+    <script src="javascripts/external/moment.js"></script>
+    <script src="javascripts/libs/Helpers.js"></script>
+    <script src="javascripts/libs/tweetParser.js"></script>
+
+    <!-- The 'main' for this app -->
+    <script src="javascripts/app/app.js"></script>
+
+    <!-- Model -->
+    <script src="javascripts/app/model/Tweet.js"></script>
+
+    <!-- Collections -->
+    <script src="javascripts/app/collection/Timeline.js"></script>
+
+    <!-- View -->
+    <script src="javascripts/app/view/TimelineView.js"></script>
+
+    <!-- Router -->
+    <script src="javascripts/app/router/AppRouter.js"></script>
+
+  </body>
+</html>

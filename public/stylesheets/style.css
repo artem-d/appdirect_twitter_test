@@ -6,3 +6,69 @@ body {
 a {
   color: #00B7FF;
 }
+
+.tweetColumn {
+  float:left;
+  display:inline;
+  width: 31%;
+  height: 500px;
+  background:#f4f4f4;
+  border:1px solid #ddd;
+  margin: 0 10px 20px 0;
+  padding: 0;
+
+  list-style: none;
+  text-align: left;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+
+.tweet {
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 3px 3px 5px #888888;
+}
+
+.tweetTimeline {
+  padding: 5px;
+}
+
+.avatar {
+  float: left;
+  display: inline-block;
+}
+
+.data {
+  margin-left: 55px;
+}
+
+.avatar img {
+  border-radius: 5px;
+}
+
+.timestamp {
+  float: right;
+  font-size: .7rem;
+}
+
+@media screen and (max-width: 800px) {
+  .tweetColumn {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .avatar {
+    display: inline;
+    margin: 0 10px 10px 0;
+  }
+
+  .data {
+    margin: 0;
+  }
+}
