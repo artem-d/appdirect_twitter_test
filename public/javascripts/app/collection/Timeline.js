@@ -4,7 +4,7 @@ AppDirectApp.Collections.Timeline = Backbone.Collection.extend({
     url: '/timeline',
 
     initialize: function(options){
-        //anything to be defined on construction goes here
+
     }
 
 });

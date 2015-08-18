@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f4f8fb;
 }
 
 a {
@@ -11,33 +12,36 @@ ul {
   list-style: none;
 }
 
-.tweetColumn {
-  display: inline-block;
-  width: 32%;
-  height: 500px;
-  background:#f4f4f4;
-  border:1px solid #ddd;
-  margin: 0 10px 20px 0;
-  padding: 0;
-
-  list-style: none;
-  text-align: left;
-  overflow: auto;
-  overflow-x: hidden;
+#tweetColumns {
+  display: flex;
+  justify-content: space-between;
 }
 
+.tweetColumn {
+  padding: 0;
+  margin-bottom: 15px;
+  overflow: auto;
+  width: 32%;
+  height: 500px;
+  background: #fff;
+  border-color: #e3e7ea;
+  border-width: 1px;
+  border-style: solid;
+}
 
 .tweet {
   background-color: white;
-  margin: 5px;
   padding: 10px;
-  border: 1px solid grey;
-  border-radius: 4px;
-  box-shadow: 3px 3px 5px #888888;
+  border-bottom: 1px solid #e3e7ea;
+}
+
+.tweet:hover {
+  background-color: #f4f8fb;
 }
 
 .tweetTimeline {
-  padding: 5px;
+  padding: 0;
+  margin: 0;
 }
 
 .avatar {
@@ -58,13 +62,11 @@ ul {
   font-size: .7rem;
 }
 
-@media screen and (max-width: 1250px) {
-  .tweetColumn {
-    width: 31%;
+@media screen and (max-width: 1000px) {
+  .timestamp {
+    float: left;
   }
-}
 
-@media screen and (max-width: 996px) {
   .avatar {
     display: inline;
     margin: 0 10px 10px 0;
@@ -76,8 +78,16 @@ ul {
 }
 
 @media screen and (max-width: 800px) {
+  .timestamp {
+    float: right;
+  }
+
   .tweetColumn {
     width: 100%;
+    display: block;
+  }
+
+  #tweetColumns {
     display: block;
   }
 }
