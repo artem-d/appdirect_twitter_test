@@ -7,10 +7,13 @@ a {
   color: #00B7FF;
 }
 
+ul {
+  list-style: none;
+}
+
 .tweetColumn {
-  float:left;
-  display:inline;
-  width: 31%;
+  display: inline-block;
+  width: 32%;
   height: 500px;
   background:#f4f4f4;
   border:1px solid #ddd;
@@ -55,10 +58,9 @@ a {
   font-size: .7rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1250px) {
   .tweetColumn {
-    width: 100%;
-    display: block;
+    width: 31%;
   }
 }
 
@@ -70,5 +72,12 @@ a {
 
   .data {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .tweetColumn {
+    width: 100%;
+    display: block;
   }
 }
