@@ -6,6 +6,8 @@ window.AppDirectApp = {
   initialize: function () {
     var twitterAccounts = ["AppDirect", "TechCrunch", "LaughingSquid"];
     this.initTimeLineViews(twitterAccounts);
+    new AppDirectApp.Views.SettingsToggleView();
+    new AppDirectApp.Views.SettingsView();
     new AppDirectApp.Routers.AppRouter();
 
     Backbone.history || (Backbone.history = new Backbone.History);
@@ -19,6 +21,8 @@ window.AppDirectApp = {
     });
   }
 };
+
+var EventBus = _.extend({},Backbone.Events);
 
 $(document).ready(function() {
   AppDirectApp.initialize();

@@ -1,7 +1,5 @@
 AppDirectApp.Views.TimelineView = Backbone.View.extend({
 
-  el: '.tweetColumns',
-
   template: Handlebars.compile($("#timeline-template").html()),
 
   timeline: null,

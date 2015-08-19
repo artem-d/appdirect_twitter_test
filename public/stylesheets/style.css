@@ -30,7 +30,7 @@ ul {
 }
 
 .tweet {
-  background-color: white;
+  background-color: #ffffff;
   padding: 10px;
   border-bottom: 1px solid #e3e7ea;
 }
@@ -60,6 +60,34 @@ ul {
 .timestamp {
   float: right;
   font-size: .7rem;
+}
+
+.temp {
+  padding: 20px;
+}
+
+#settingsToggle {
+  display: block;
+  float: right;
+  margin: 0 0 10px 0;
+}
+
+.clear {
+  clear: both;
+}
+
+#settingsView {
+  max-width: 300px;
+  background: #ffffff;
+  border-color: #e3e7ea;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#settingsView {
+  display: none;
 }
 
 @media screen and (max-width: 1000px) {
