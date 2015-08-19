@@ -1,10 +1,10 @@
 $(function() {
 
-  Handlebars.registerHelper('format', function (str) {
+  Handlebars.registerHelper('format', function(str) {
 
-    if(str){
+    if (str) {
       return new Handlebars.SafeString(str.parseURL().parseUsername().parseHashtag());
-    }else{
+    } else {
       return str;
     }
 

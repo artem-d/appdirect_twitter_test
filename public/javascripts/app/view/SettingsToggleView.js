@@ -10,11 +10,11 @@ AppDirectApp.Views.SettingsToggleView = Backbone.View.extend({
     this.render();
   },
 
-  click: function () {
+  click: function() {
     EventBus.trigger('settingsView:click');
   },
 
-  render: function () {
+  render: function() {
     this.$el.html('<a href="#" id="toggleSettings">Toggle Settings</a>');
     return this;
   }

@@ -5,7 +5,7 @@ var Twitter = require('twitter-node-client').Twitter;
 
 var twitterClient = null;
 
-function connectToTwitter(){
+function connectToTwitter() {
   var config = {
     "consumerKey": "PYYJ9udeiWrg6T8x4CazWVH4i",
     "consumerSecret": "Qb4medkB6GLh2jkn902rPs4JW60wlEEo8Sv7uUGIta43B9s37c",
@@ -20,23 +20,24 @@ connectToTwitter();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  res.render('index', { title: 'AppDirect Twitter connect' });
+  res.render('index', {
+    title: 'AppDirect Twitter connect'
+  });
 
 });
 
 /* GET timeline. */
 router.get('/timeline', function(req, res, next) {
 
-  var error = function (err, body) {
+  var error = function(err, body) {
     console.log('ERROR [%s]', err);
     res.send(404);
   };
-  var success = function (data) {
+  var success = function(data) {
     res.send(data);
   };
 
-  twitter_client.getUserTimeline(
-    {
+  twitter_client.getUserTimeline({
       screen_name: req.query.twitterAccount,
       count: req.query.tweetCount
     },

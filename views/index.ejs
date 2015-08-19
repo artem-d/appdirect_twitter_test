@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='stylesheets/style.css' />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css">
   </head>
   <body>
     <h1><%= title %></h1>
@@ -14,13 +15,13 @@
 
     <div id="tweetColumns">
       <div class="tweetColumn" id="column_0">
-        <p class="temp">Loading timeline...</p>
+        <div id ="center" style="position:relative;top:20%;left:45%"><img class="spinner" src="images/spinner.gif" height="40px" width="40px"></div>
       </div>
       <div class="tweetColumn" id="column_1">
-        <p class="temp">Loading timeline...</p>
+        <div id ="center" style="position:relative;top:20%;left:45%"><img class="spinner" src="images/spinner.gif" height="40px" width="40px"></div>
       </div>
       <div class="tweetColumn" id="column_2">
-        <p class="temp">Loading timeline...</p>
+        <div id ="center" style="position:relative;top:20%;left:45%"><img class="spinner" src="images/spinner.gif" height="40px" width="40px"></div>
       </div>
     </div>
 
@@ -31,7 +32,7 @@
         {{#each tweets}}
         <li class="tweet">
           <div class="avatar">
-            <img src='{{user.profile_image_url}}'></img>
+            <img src='{{user.profile_image_url}}' />
           </div>
           <div class='data'>
             <b>{{user.name}}</b>
@@ -47,8 +48,19 @@
       <form id='settingsForm' action="#">
         Adjust tweets per column:<br/>
         5
-        <input name="tweetCount" id="tweetCount" type="range" min="5" max="500" value="{{count}}">
+        <input name="tweetCount" id="tweetCount" type="range" min="5" max="500" value="{{tweetCount}}">
         500<br/>
+        <br/>
+        Change column order: <br/>
+        <ul id="sortable">
+          {{#each twitterAccounts}}
+            <li class="ui-state-default" data-twitter-acc="{{this}}">
+              <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+        <br/>
         <input type="submit" value="Update"/>
       </form>
     </script>
@@ -59,6 +71,7 @@
     <script src="javascripts/external/backbone-min.js"></script>
     <script src="javascripts/external/handlebars-v3.0.3.js"></script>
     <script src="javascripts/external/moment.js"></script>
+    <script src="javascripts/external/jquery-ui.min.js"></script>
     <script src="javascripts/libs/Helpers.js"></script>
     <script src="javascripts/libs/tweetParser.js"></script>
 

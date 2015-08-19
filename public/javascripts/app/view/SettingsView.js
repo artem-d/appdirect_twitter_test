@@ -14,7 +14,10 @@ AppDirectApp.Views.SettingsView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({count: this.model.tweetCount}));
+    this.$el.html(this.template({
+      tweetCount: this.model.tweetCount,
+      twitterAccounts: this.model.twitterAccounts
+    }));
     return this;
   },
 
@@ -22,10 +25,22 @@ AppDirectApp.Views.SettingsView = Backbone.View.extend({
     this.$el.toggle();
   },
 
-  submit: function (e) {
+  submit: function(e) {
     e.preventDefault();
-    var $form = $('form#settingsForm');
+    var formData = this.parseForm('settingsForm');
+    AppDirectApp.settings.updateAttributes(formData);
+  },
+
+  parseForm: function(formId) {
+    $form = $('form#' + formId);
     var tweetCount = $form.find('input[name="tweetCount"]').val();
-    AppDirectApp.settings.updateAttributes({tweetCount: tweetCount});
+    var twitterAccounts =
+      _.map($form.find("ul#sortable li"), function(li) {
+        return $(li).data("twitter-acc");
+      });
+    return {
+      tweetCount: tweetCount,
+      twitterAccounts: twitterAccounts
+    };
   }
 });
