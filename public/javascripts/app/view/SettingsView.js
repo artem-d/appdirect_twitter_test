@@ -14,7 +14,7 @@ AppDirectApp.Views.SettingsView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template);
+    this.$el.html(this.template({count: this.model.tweetCount}));
     return this;
   },
 
@@ -24,7 +24,8 @@ AppDirectApp.Views.SettingsView = Backbone.View.extend({
 
   submit: function (e) {
     e.preventDefault();
-    var formData = $('form#settingsForm').serializeArray();
-    console.log(formData);
+    var $form = $('form#settingsForm');
+    var tweetCount = $form.find('input[name="tweetCount"]').val();
+    AppDirectApp.settings.updateAttributes({tweetCount: tweetCount});
   }
 });

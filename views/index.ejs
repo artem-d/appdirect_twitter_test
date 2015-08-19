@@ -8,19 +8,19 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-    <div id="settingsToggle"><a href="">Settings</a></div>
+    <div id="settingsToggle"><a href="">Toggle Settings</a></div>
     <div id="settingsView"></div>
     <div class="clear"></div>
 
     <div id="tweetColumns">
       <div class="tweetColumn" id="column_0">
-        <p class="temp">30 most recent tweets from @AppDirect.</p>
+        <p class="temp">Loading timeline...</p>
       </div>
       <div class="tweetColumn" id="column_1">
-        <p class="temp">30 most recent tweets from @techcrunch.</p>
+        <p class="temp">Loading timeline...</p>
       </div>
       <div class="tweetColumn" id="column_2">
-        <p class="temp">30 most recent tweets from @laughingsquid.</p>
+        <p class="temp">Loading timeline...</p>
       </div>
     </div>
 
@@ -47,9 +47,9 @@
       <form id='settingsForm' action="#">
         Adjust tweets per column:<br/>
         5
-        <input name="tweetCount" id="tweetCount" type="range" min="5" max="300" value="30">
-        300<br/>
-        <input type="submit"/>
+        <input name="tweetCount" id="tweetCount" type="range" min="5" max="500" value="{{count}}">
+        500<br/>
+        <input type="submit" value="Update"/>
       </form>
     </script>
 
@@ -67,6 +67,7 @@
 
     <!-- Model -->
     <script src="javascripts/app/model/Tweet.js"></script>
+    <script src="javascripts/app/model/Settings.js"></script>
 
     <!-- Collections -->
     <script src="javascripts/app/collection/Timeline.js"></script>

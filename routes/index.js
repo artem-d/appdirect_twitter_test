@@ -35,7 +35,14 @@ router.get('/timeline', function(req, res, next) {
     res.send(data);
   };
 
-  twitter_client.getUserTimeline({ screen_name: req.query.twitterAccount, count: '30'}, error, success);
+  twitter_client.getUserTimeline(
+    {
+      screen_name: req.query.twitterAccount,
+      count: req.query.tweetCount
+    },
+    error,
+    success
+  );
 
 });
 

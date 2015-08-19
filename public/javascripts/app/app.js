@@ -4,10 +4,10 @@ window.AppDirectApp = {
   Views: {},
   Routers: {},
   initialize: function () {
-    var twitterAccounts = ["AppDirect", "TechCrunch", "LaughingSquid"];
-    this.initTimeLineViews(twitterAccounts);
+    AppDirectApp.settings = new AppDirectApp.Models.Settings();
+    this.initTimelineViews(AppDirectApp.settings);
     new AppDirectApp.Views.SettingsToggleView();
-    new AppDirectApp.Views.SettingsView();
+    new AppDirectApp.Views.SettingsView({model: AppDirectApp.settings});
     new AppDirectApp.Routers.AppRouter();
 
     Backbone.history || (Backbone.history = new Backbone.History);
@@ -15,10 +15,17 @@ window.AppDirectApp = {
       pushState: true
     });
   },
-  initTimeLineViews: function (twitterAccounts) {
-    twitterAccounts.forEach(function (el, i) {
-      new AppDirectApp.Views.TimelineView({el: ".tweetColumn#column_"+i, twitterAccount: el});
+
+  initTimelineViews: function (settings) {
+    settings.twitterAccounts.forEach(function (el, i) {
+      var collection = new AppDirectApp.Collections.Timeline();
+
+      new AppDirectApp.Views.TimelineView({ el: ".tweetColumn#column_"+el.order, twitterAccount: el.name });
     });
+  },
+
+  initSettings: function () {
+    AppDirectApp.settings = new AppDirectApp.Models.Settings();
   }
 };
 
