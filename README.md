@@ -1,6 +1,7 @@
 # Twitter Challenge:
 
-The server side is implemented with Node.js + Express.js, front-end is a Backbone.js app.
+The server side is implemented with Node.js + Express.js, front-end is a Backbone.js app.  
+Deployed application: [appdirect-twitterapp-test.herokuapp.com](https://appdirect-twitterapp-test.herokuapp.com/)
 
 ## The challenge:
 
