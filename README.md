@@ -1,9 +1,16 @@
-# Twitter Challenge:
+# Twitter Challenge
 
-The server side is implemented with Node.js + Express.js, front-end is a Backbone.js app.  
-Deployed application: [appdirect-twitterapp-test.herokuapp.com](https://appdirect-twitterapp-test.herokuapp.com/)
+The server side is implemented with Node.js + Express.js, front-end is a Backbone.js app.
 
-## The challenge:
+<p align="center">
+  <a href="https://appdirect-twitterapp-test.herokuapp.com/" target="_blank">
+    <img src="https://s28.postimg.org/k66cixjul/screenshot.png" width="800px">
+    <br>
+    Live Demo
+  </a>
+</p>
+
+## The challenge
 
 We are interested in making a front-end with standards-compliant, asynchronous, API-driven, beauteous JavaScript, HTML, and CSS. Your task is to do just that with Twitter's REST API. Please complete any number of the steps below within 10 days of us sending you this document. You may put in as many hours as you wish and use any framework and languages you would like (evidence of native JavaScript + Backbone use encouraged) to complete the task. We will accept an email attachment of files, a link to a github repo, or a url of a website where your solution is posted. We are looking for code quality, knowledge of cross-browser compatibility, quick load times, and innovation/thoughtfulness.
 
@@ -37,3 +44,21 @@ Use the Twitter API to create three columns containing the last 30 tweets from @
 **Bonuses/for fun:**
 
  - Use an interaction (like drag and drop) instead of a form field to order the columns.
+
+## Running locally
+
+- Clone the repo
+- Install ngrok on your system (https://ngrok.com/) and run proxy:
+
+  ```console
+  ngrok http 3000
+  ```
+- Copy the outside url (for example http://ecef93b4.ngrok.io)
+- Replace your ngrok address in routes/index.js, line 14
+- Install dependencies and run project (in project directory):
+
+  ```console
+  npm install
+  node ./bin/www
+  ```
+- Open above ngrok address in your browser
